@@ -1,6 +1,6 @@
-# vve-i18n-cli
+# i18n-autoScan-cli
 
-[![Build Status](https://travis-ci.org/vue-viewer-editor/vve-i18n-cli.svg?branch=master)](https://travis-ci.org/vue-viewer-editor/vve-i18n-cli)
+[![Build Status](https://github.com/kakatelo/i18n-autoScan-cli?branch=main)]
 
 抽取国际化文本，生成国际化资源文件，配合[vve-i18n-zh-check-cli](README-zh-check.md)和[vve-i18n-zh-wrap-cli](README-zh-wrap.md)可以把中文包裹一层国际化函数，应用无缝变成国际化应用
 

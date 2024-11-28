@@ -1,5 +1,5 @@
 {
-  "name": "autoy-i18n-cli",
+  "name": "i18n-autoScan-cli",
   "version": "1.0.0",
   "description": "generate an internationalized text resource file",
   "bin": {
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kakatelo/auto-i18n-cli.git"
+    "url": "git+https://github.com/kakatelo/i18n-autoScan-cli.git"
   },
   "keywords": [
     "auto",
@@ -31,9 +31,9 @@
   "author": "nianqin",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kakatelo/auto-i18n-cli/issues"
+    "url": "https://github.com/kakatelo/i18n-autoScan-cli/issues"
   },
-  "homepage": "https://github.com/kakatelo/auto-i18n-cli#readme",
+  "homepage": "https://github.com/kakatelo/i18n-autoScan-cli#readme",
   "dependencies": {
     "commander": "^3.0.2",
     "debug": "^4.1.1",
