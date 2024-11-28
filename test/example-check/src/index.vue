@@ -12,21 +12,21 @@
 
 // 您好233 fsafsaf你好3
 
-const message1 = "您好"
+const message1 = '您好'
 
 const message2 = `引号`
 /**
  * 12312afsa你好22
  */
 
-const message3 = "您好2" // vve-i18n-zh-check-disable-line
+const message3 = '您好2' // auto-i18n-zh-check-disable-line
 
-// vve-i18n-zh-check-disable-next-line
-const message4 = "您好3"
+// auto-i18n-zh-check-disable-next-line
+const message4 = '您好3'
 
-/* vve-i18n-zh-check-disable */
- const message5 = "您好4"
-/* vve-i18n-zh-check-enable */
+/* auto-i18n-zh-check-disable */
+const message5 = '您好4'
+/* auto-i18n-zh-check-enable */
 
 export default {
   props: {
@@ -34,12 +34,12 @@ export default {
       default: '我是属性'
     }
   },
-  data () {
+  data() {
     return {
       rules: [
-        { 
-          validator (rule, val, callback) {
-            callback(new Error("请输入"))
+        {
+          validator(rule, val, callback) {
+            callback(new Error('请输入'))
           }
         }
       ],
@@ -51,11 +51,8 @@ export default {
       }
     }
   },
-  computed: {
-  },
-  methods: {
-  },
-  computed: {
-  }
+  computed: {},
+  methods: {},
+  computed: {}
 }
 </script>

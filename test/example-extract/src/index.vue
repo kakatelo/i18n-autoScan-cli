@@ -15,12 +15,12 @@
  * 多行注释2
  */
 
-// vve-i18n-zh-extract-disable-next-line
-const message4 = "下一行禁止提取"
+// auto-i18n-zh-extract-disable-next-line
+const message4 = '下一行禁止提取'
 
-/* vve-i18n-zh-extract-disable */
- const message5 = "包裹禁止提取" // 测试啦啦啦
-/* vve-i18n-zh-extract-enable */
+/* auto-i18n-zh-extract-disable */
+const message5 = '包裹禁止提取' // 测试啦啦啦
+/* auto-i18n-zh-extract-enable */
 
 export default {
   props: {
@@ -28,16 +28,13 @@ export default {
       default: '我是属性'
     }
   },
-  data () {
+  data() {
     return {
       title: this.$t('您好')
     }
   },
-  computed: {
-  },
-  methods: {
-  },
-  computed: {
-  }
+  computed: {},
+  methods: {},
+  computed: {}
 }
 </script>

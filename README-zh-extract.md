@@ -1,12 +1,10 @@
-# vve-i18n-zh-extract-cli
+# auto-i18n-zh-extract-cli
 
-[![Build Status](https://github.com/kakatelo/i18n-autoScan-cli?branch=main)]
+使用[auto-i18n-zh-wrap-cli](README-zh-wrap.md)把vue和js中的中文包裹一层国际化函数，但有些中文无法被包裹或者包裹后可能会导致程序异常。
 
-使用[vve-i18n-zh-wrap-cli](README-zh-wrap.md)把vue和js中的中文包裹一层国际化函数，但有些中文无法被包裹或者包裹后可能会导致程序异常。
+使用[auto-i18n-zh-check-cli](README-zh-check.md)可以提前检测这些中文的存在，并给出相关的信息提醒开发者进行修订，但提供的信息相对有限，还是有一些中文遗留。
 
-使用[vve-i18n-zh-check-cli](README-zh-check.md)可以提前检测这些中文的存在，并给出相关的信息提醒开发者进行修订，但提供的信息相对有限，还是有一些中文遗留。
-
-使用 `vve-i18n-zh-extract-cli`可以提取中文，配置忽略规则，可以提取出所有上述工具无法处理的中文，后根据提取结果人工进行甄别判断处理。
+使用 `auto-i18n-zh-extract-cli`可以提取中文，配置忽略规则，可以提取出所有上述工具无法处理的中文，后根据提取结果人工进行甄别判断处理。
 
 ## 例子
 
@@ -30,12 +28,12 @@ vue文件
  * 多行注释2
  */
 
-// vve-i18n-zh-extract-disable-next-line
+// auto-i18n-zh-extract-disable-next-line
 const message4 = "下一行禁止提取"
 
-/* vve-i18n-zh-extract-disable */
+/* auto-i18n-zh-extract-disable */
  const message5 = "包裹禁止提取" // 测试啦啦啦
-/* vve-i18n-zh-extract-enable */
+/* auto-i18n-zh-extract-enable */
 
 export default {
   props: {
@@ -70,7 +68,7 @@ export default {
 使用npm安装：
 
 ```
-$ npm install vve-i18n-cli
+$ npm install i18n-autoScan-cli
 ```
 
 ## 使用
@@ -79,7 +77,7 @@ $ npm install vve-i18n-cli
 
 ```json
 "scripts": {
-  "i18n-zh-extract": "vve-i18n-zh-extract-cli"
+  "i18n-zh-extract": "auto-i18n-zh-extract-cli"
 }
 ```
 
@@ -98,7 +96,7 @@ program
   .option("--root-dir <path>", "国际文本所在的根目录")
   .option(
     "--config <path>",
-    "配置文件的路径，没有配置，默认路径是在${cwd}/vve-i18n-cli.config.js"
+    "配置文件的路径，没有配置，默认路径是在${cwd}/i18n-autoScan-cli.js"
   )
   .option("--disable-config-file", "是否取配置文件")
   .option(
@@ -142,7 +140,7 @@ program
 
 ### 配置文件指定参数
 
-默认配置文件在${cwd}/vve-i18n-cli.config.js，样例内容如下所示
+默认配置文件在${cwd}/i18n-autoScan-cli.config.js，样例内容如下所示
 
 ```javascript
 module.exports = {
@@ -162,7 +160,7 @@ const config = {
   cwd: ".",
   // 根目录，国际文本所在的根目录
   rootDir: "src",
-  // 配置文件的路径，没有配置，默认路径是在${cwd}/vve-i18n-cli.config.js
+  // 配置文件的路径，没有配置，默认路径是在${cwd}/i18n-autoScan-cli.config.js
   config: undefined,
   // 是否取配置文件
   disableConfigFile: false,
@@ -187,9 +185,9 @@ const config = {
   ],
   // 忽略禁用包裹，需要包含三个group，前中后
   ignoreDisableWrap: [
-    { name: 'disableLine', regex: /(\n|^)(.*)(\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)vve-i18n-zh-extract-disable-line(?:[^\S\r\n]*|[^\S\r\n]+.*))/g },
-    { name: 'disableNextLine', regex: /(\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)vve-i18n-zh-extract-disable-next-line(?:[^\S\r\n]*|[^\S\r\n]+.*)\n)(.+)(\n|$)/g },
-    { name: 'disableWrap', regex: /(\/\*\s*vve-i18n-zh-extract-disable\s*\*\/)([\s\S]*?)((?:\/\*\s*vve-i18n-zh-extract-enable\s*\*\/)|$)/g }
+    { name: 'disableLine', regex: /(\n|^)(.*)(\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)auto-i18n-zh-extract-disable-line(?:[^\S\r\n]*|[^\S\r\n]+.*))/g },
+    { name: 'disableNextLine', regex: /(\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)auto-i18n-zh-extract-disable-next-line(?:[^\S\r\n]*|[^\S\r\n]+.*)\n)(.+)(\n|$)/g },
+    { name: 'disableWrap', regex: /(\/\*\s*auto-i18n-zh-extract-disable\s*\*\/)([\s\S]*?)((?:\/\*\s*auto-i18n-zh-extract-enable\s*\*\/)|$)/g }
   ],
   // 输出的目录
   outDir: '',

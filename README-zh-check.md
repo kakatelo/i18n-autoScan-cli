@@ -1,10 +1,8 @@
-# vve-i18n-zh-check-cli
+# auto-i18n-zh-check-cli
 
-[![Build Status](https://github.com/kakatelo/i18n-autoScan-cli?branch=main)]
+使用[auto-i18n-zh-wrap-cli](README-zh-wrap.md)把vue和js中的中文包裹一层国际化函数，但有些中文无法被包裹或者包裹后可能会导致程序异常。
 
-使用[vve-i18n-zh-wrap-cli](README-zh-wrap.md)把vue和js中的中文包裹一层国际化函数，但有些中文无法被包裹或者包裹后可能会导致程序异常。
-
-使用 `vve-i18n-zh-check-cli`可以提前检测这些中文的存在，并给出相关的信息提醒开发者进行修订。
+使用 `auto-i18n-zh-check-cli`可以提前检测这些中文的存在，并给出相关的信息提醒开发者进行修订。
 
 ## 例子
 
@@ -96,7 +94,7 @@ export default {
 使用npm安装：
 
 ```
-$ npm install vve-i18n-cli
+$ npm install i18n-autoScan-cli
 ```
 
 ## 使用
@@ -105,7 +103,7 @@ $ npm install vve-i18n-cli
 
 ```json
 "scripts": {
-  "i18n-zh-check": "vve-i18n-zh-check-cli"
+  "i18n-zh-check": "auto-i18n-zh-check-cli"
 }
 ```
 
@@ -122,7 +120,7 @@ program
   .option("--root-dir <path>", "国际文本所在的根目录")
   .option(
     "--config <path>",
-    "配置文件的路径，没有配置，默认路径是在${cwd}/vve-i18n-cli.config.js"
+    "配置文件的路径，没有配置，默认路径是在${cwd}/i18n-autoScan-cli.config.js"
   )
   .option("--disable-config-file", "是否取配置文件")
   .option(
@@ -154,7 +152,7 @@ program
 
 ### 配置文件指定参数
 
-默认配置文件在${cwd}/vve-i18n-cli.config.js，样例内容如下所示
+默认配置文件在${cwd}/i18n-autoScan-cli.config.js，样例内容如下所示
 
 ```javascript
 module.exports = {
@@ -174,7 +172,7 @@ const config = {
   cwd: ".",
   // 根目录，国际文本所在的根目录
   rootDir: "src",
-  // 配置文件的路径，没有配置，默认路径是在${cwd}/vve-i18n-cli.config.js
+  // 配置文件的路径，没有配置，默认路径是在${cwd}/i18n-autoScan-cli.config.js
   config: undefined,
   // 是否取配置文件
   disableConfigFile: false,
@@ -190,12 +188,12 @@ const config = {
   ],
   // 如果满足匹配的内容，就忽略检查
   disableRules: [
-    // 单行禁用，使用：在当前行添加 // vve-i18n-zh-check-disable-line
-    /(.*\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)vve-i18n-zh-check-disable-line(?:[^\S\r\n]*|[^\S\r\n]+.*))/g,
-    // 下一行禁用，使用：在上一行添加 // vve-i18n-zh-check-disable-next-line
-    /\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)vve-i18n-zh-check-disable-next-line(?:[^\S\r\n]*|[^\S\r\n]+.*)\n(.+)/g,
+    // 单行禁用，使用：在当前行添加 // auto-i18n-zh-check-disable-line
+    /(.*\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)auto-i18n-zh-check-disable-line(?:[^\S\r\n]*|[^\S\r\n]+.*))/g,
+    // 下一行禁用，使用：在上一行添加 // auto-i18n-zh-check-disable-next-line
+    /\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)auto-i18n-zh-check-disable-next-line(?:[^\S\r\n]*|[^\S\r\n]+.*)\n(.+)/g,
     // 代码块禁用，使用：在需要的地方包括
-    /\/\*\s*vve-i18n-zh-check-disable\s*\*\/([\s\S]*?)(?:(?:\/\*\s*vve-i18n-zh-check-enable\s*\*\/)|$)/g
+    /\/\*\s*auto-i18n-zh-check-disable\s*\*\/([\s\S]*?)(?:(?:\/\*\s*auto-i18n-zh-check-enable\s*\*\/)|$)/g
   ],
 };
 ```

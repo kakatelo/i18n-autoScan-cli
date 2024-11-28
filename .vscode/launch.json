@@ -7,7 +7,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "vve-i18n-cli",
+      "name": "auto-i18n-cli",
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -17,7 +17,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "vve-i18n-zh-wrap-cli",
+      "name": "auto-i18n-zh-wrap-cli",
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -27,7 +27,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "vve-i18n-zh-check-cli",
+      "name": "auto-i18n-zh-check-cli",
       "skipFiles": [
         "<node_internals>/**"
       ],
@@ -37,7 +37,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "vve-i18n-zh-extract-cli",
+      "name": "auto-i18n-zh-extract-cli",
       "skipFiles": [
         "<node_internals>/**"
       ],

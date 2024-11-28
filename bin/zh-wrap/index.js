@@ -17,7 +17,7 @@ program
   .version(require('../../package.json').version)
   .option('--cwd <path>', '工作目录')
   .option('--root-dir <path>', '国际文本所在的根目录')
-  .option('--config <path>', '配置文件的路径，没有配置，默认路径是在${cwd}/vve-i18n-cli.config.js')
+  .option('--config <path>', '配置文件的路径，没有配置，默认路径是在${cwd}/i18n-autoScan-cli.config.js')
   .option('--disable-config-file', '是否取配置文件')
   .option('--i18n-file-rules <items>', '匹配含有国际化文本的文件规则', commaSeparatedList)
   .option('--ignore-i18n-file-rules <items>', '不匹配含有国际化文本的文件规则', commaSeparatedList)
@@ -35,7 +35,7 @@ const config = {
   cwd: '.',
   // 根目录，国际文本所在的根目录
   rootDir: 'src',
-  // 配置文件的路径，没有配置，默认路径是在${cwd}/vve-i18n-cli.config.js
+  // 配置文件的路径，没有配置，默认路径是在${cwd}/i18n-autoScan-cli.config.js
   config: undefined,
   // 是否取配置文件
   disableConfigFile: false,
@@ -51,12 +51,12 @@ const config = {
   ignoreAttr: [],
   // 如果满足匹配的内容，就忽略包裹
   disableRules: [
-    // 单行禁用，使用：在当前行添加 // vve-i18n-zh-wrap-disable-line
-    /(.*\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)vve-i18n-zh-wrap-disable-line(?:[^\S\r\n]*|[^\S\r\n]+.*))/g,
-    // 下一行禁用，使用：在上一行添加 // vve-i18n-zh-wrap-disable-next-line
-    /\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)vve-i18n-zh-wrap-disable-next-line(?:[^\S\r\n]*|[^\S\r\n]+.*)\n(.+)/g,
+    // 单行禁用，使用：在当前行添加 // auto-i18n-zh-wrap-disable-line
+    /(.*\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)auto-i18n-zh-wrap-disable-line(?:[^\S\r\n]*|[^\S\r\n]+.*))/g,
+    // 下一行禁用，使用：在上一行添加 // auto-i18n-zh-wrap-disable-next-line
+    /\/\/(?:[^\S\r\n]*|.*[^\S\r\n]+)auto-i18n-zh-wrap-disable-next-line(?:[^\S\r\n]*|[^\S\r\n]+.*)\n(.+)/g,
     // 代码块禁用，使用：在需要的地方包括
-    /\/\*\s*vve-i18n-zh-wrap-disable\s*\*\/([\s\S]*?)(?:(?:\/\*\s*vve-i18n-zh-wrap-enable\s*\*\/)|$)/g
+    /\/\*\s*auto-i18n-zh-wrap-disable\s*\*\/([\s\S]*?)(?:(?:\/\*\s*auto-i18n-zh-wrap-enable\s*\*\/)|$)/g
   ],
   // js相关文件需要引入的国际化文件
   i18nImportForJs: "import i18n from '@/i18n'",
@@ -68,7 +68,7 @@ const config = {
 
 Object.assign(config, program)
 
-const CONFIG_JS_FILENAME = 'vve-i18n-cli.config.js'
+const CONFIG_JS_FILENAME = 'i18n-autoScan-cli.config.js'
 
 let absoluteCwd = path.resolve(config.cwd)
 
