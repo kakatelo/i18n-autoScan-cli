@@ -1,6 +1,6 @@
 # vve-i18n-zh-extract-cli
 
-[![Build Status](https://travis-ci.org/vue-viewer-editor/vve-i18n-cli.svg?branch=master)](https://travis-ci.org/vue-viewer-editor/vve-i18n-cli)
+[![Build Status](https://github.com/kakatelo/i18n-autoScan-cli?branch=main)]
 
 使用[vve-i18n-zh-wrap-cli](README-zh-wrap.md)把vue和js中的中文包裹一层国际化函数，但有些中文无法被包裹或者包裹后可能会导致程序异常。
 

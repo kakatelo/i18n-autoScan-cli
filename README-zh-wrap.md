@@ -1,8 +1,8 @@
-# vve-i18n-zh-wrap-cli
+# auto-i18n-zh-wrap-cli
 
-[![Build Status](https://travis-ci.org/vue-viewer-editor/vve-i18n-cli.svg?branch=master)](https://travis-ci.org/vue-viewer-editor/vve-i18n-cli)
+[![Build Status](https://github.com/kakatelo/i18n-autoScan-cli?branch=main)]
 
-把vue和js中的中文包裹一层国际化函数，配合[vve-i18n-cli](README.md)可以直接生成国际化资源文件
+把vue和js中的中文包裹一层国际化函数，配合[auto-i18n-cli](README.md)可以直接生成国际化资源文件
 
 ## 例子
 

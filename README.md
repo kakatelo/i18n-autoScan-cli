@@ -2,14 +2,14 @@
 
 [![Build Status](https://github.com/kakatelo/i18n-autoScan-cli?branch=main)]
 
-抽取国际化文本，生成国际化资源文件，配合[vve-i18n-zh-check-cli](README-zh-check.md)和[vve-i18n-zh-wrap-cli](README-zh-wrap.md)可以把中文包裹一层国际化函数，应用无缝变成国际化应用
+抽取国际化文本，生成国际化资源文件，配合[auto-i18n-zh-check-cli](README-zh-check.md)和[auto-i18n-zh-wrap-cli](README-zh-wrap.md)可以把中文包裹一层国际化函数，应用无缝变成国际化应用
 
 ## 安装
 
 使用npm安装：
 
 ```
-$ npm install vve-i18n-cli
+$ npm install i18n-autoScan-cli
 ```
 
 ## 使用
@@ -18,7 +18,7 @@ $ npm install vve-i18n-cli
 
 ```json
 "scripts": {
-  "i18n": "vve-i18n-cli"
+  "i18n": "i18n-autoScan-cli"
 }
 ```
 
@@ -82,7 +82,7 @@ program
   )
   .option(
     "--config <path>",
-    "配置文件的路径，没有配置，默认路径是在${cwd}/vve-i18n-cli.config.js"
+    "配置文件的路径，没有配置，默认路径是在${cwd}/i18n-autoScan-cli.config.js"
   )
   .option("--disable-config-file", "是否取配置文件")
   .option("-t, --translate", "是否翻译，只翻译每次执行提取到新的key，且满足translateValueRules规则")
@@ -115,7 +115,7 @@ program
 
 ### 配置文件指定参数
 
-默认配置文件在${cwd}/vve-i18n-cli.config.js，样例内容如下所示
+默认配置文件在${cwd}/i18n-autoScan-cli.config.js，样例内容如下所示
 
 ```javascript
 module.exports = {
@@ -164,7 +164,7 @@ const config = {
   // 根据设置的语言，ignore: true 表示忽略这个语言的所有 值与key相同 的key，不生成在国际化资源文件中，keepKeyRules表示强制保留某些key
   // 因为一般是中文做key，生成的value也是中文，一般这种情况下，key和value是一样的，会增加体积，是用此参数可以减少这种key的生成在资源文件中，减少体积。
   ignoreKeyValueSameKeys: {},
-  // 配置文件的路径，没有配置，默认路径是在${cwd}/vve-i18n-cli.config.js
+  // 配置文件的路径，没有配置，默认路径是在${cwd}/i18n-autoScan-cli.config.js
   config: undefined,
   // 是否取配置文件
   disableConfigFile: false,
