@@ -1,10 +1,11 @@
 {
-  "name": "i18n-autoScan-cli",
+  "name": "i18n-autoscan-cli",
   "version": "1.0.0",
   "description": "generate an internationalized text resource file",
   "bin": {
     "auto-i18n-cli": "./bin/index.js",
     "auto-i18n-zh-wrap-cli": "./bin/zh-wrap/index.js",
+    "auto-i18n-zh-excel-cli": "./bin/zh-excel/index.js",
     "auto-i18n-zh-check-cli": "./bin/zh-check/index.js",
     "auto-i18n-zh-extract-cli": "./bin/zh-extract/index.js"
   },

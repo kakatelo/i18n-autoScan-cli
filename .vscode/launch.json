@@ -17,6 +17,16 @@
     {
       "type": "node",
       "request": "launch",
+      "name": "auto-i18n-zh-excel-cli",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "program": "${workspaceFolder}/bin/zh-excel/index.js",
+      "args": ["--cwd", "./test/example-excel"],
+    },
+    {
+      "type": "node",
+      "request": "launch",
       "name": "auto-i18n-zh-wrap-cli",
       "skipFiles": [
         "<node_internals>/**"
