@@ -7,16 +7,16 @@ const vfs = require('vinyl-fs')
 const XLSX = require('xlsx')
 
 const ROOT_DIR = path.resolve('./')
-const fileRules = [
-  '**/*/lang/en.json'
-  // "**/eweb-setting-planningDeployment/i18n/en.json",
-]
+const fileRules = ['**/*/lang/en.json']
 
-const writeExcel = (arr, name = '未翻译词条') => {
+const writeExcel = (arr, name = 'enJson') => {
   const sheet_data = arr.map((v) => {
     return {
-      中文: v,
-      English: ''
+      Name: v['zh'],
+      Value: v['en'],
+      new: '',
+      desc: '',
+      suggest: ''
     }
   })
   const new_sheet = XLSX.utils.json_to_sheet(sheet_data)
@@ -34,7 +34,7 @@ function run() {
     .src(
       fileRules.map((item) => path.resolve(ROOT_DIR, item)),
       {
-        ignore: ['node_modules/**/*', 'statsvnTmp/**/*']
+        ignore: ['**/*/node_modules/**/*', 'statsvnTmp/**/*']
       }
     )
     .pipe(
@@ -42,22 +42,36 @@ function run() {
         console.log('处理文件 =========================>', file.path)
 
         let fileContent = file.contents.toString()
+
         fileContent = JSON.parse(fileContent)
         Object.keys(fileContent).map((zh) => {
-          if (zh.match(/[\u4E00-\u9FFF]/)) {
-            if (zh === fileContent[zh]) {
-              // 未翻译
-              zhList.push(zh)
-            }
-          }
+          zhList.push({
+            zh: zh,
+            en: fileContent[zh]
+          })
+          // if (zh.match(/[\u4E00-\u9FFF]/)) {
+          //   if (zh === fileContent[zh]) {
+          //     // 未翻译
+          //     zhList.push(zh);
+          //   }
+          // }
         })
         cb()
       })
     )
     .on('end', () => {
-      const uniZh = Array.from(new Set(zhList))
-      writeExcel(uniZh)
-      console.log('未翻译词条数量：', uniZh.length)
+      // 使用 Map 根据 zh 属性去重
+      const uniqueZhList = Array.from(
+        zhList
+          .reduce((acc, curr) => {
+            acc.set(curr.zh, curr)
+            return acc
+          }, new Map())
+          .values()
+      )
+
+      writeExcel(uniqueZhList)
+      console.log('未翻译词条数量：', uniqueZhList.length)
       console.log('================================>end', '根目录下生成 excle 文件')
     })
 }
