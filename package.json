@@ -1,6 +1,6 @@
 {
   "name": "i18n-autoscan-cli",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "generate an internationalized text resource file",
   "bin": {
     "auto-i18n-cli": "./bin/index.js",
